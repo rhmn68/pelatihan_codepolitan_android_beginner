@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnPindahActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pindah Activity"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnPindahActivityDenganData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pindah Activity Dengan Data"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnPindahActivityDenganObject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pindah Activity Dengan Object"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnDialNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dial Number"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnMembukaALamatWeb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Membuka Alamat Web"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnPindahActivityDenganResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pindah Activity Dengan Result"
+        android:layout_marginBottom="40dp"/>
+
+    <TextView
+        android:id="@+id/tvHasil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hasil"
+        android:textSize="40sp"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>
