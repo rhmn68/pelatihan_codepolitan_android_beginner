@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val adapter = ContactAdapter(this, Repository.getDataContacts())
+        adapter.notifyDataSetChanged()
         recyclerViewContacts.layoutManager = LinearLayoutManager(this)
         recyclerViewContacts.adapter = adapter
     }
