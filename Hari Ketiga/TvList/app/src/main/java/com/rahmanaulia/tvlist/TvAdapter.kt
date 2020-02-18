@@ -27,7 +27,7 @@ class TvAdapter(private val context: Context, private val listTv: List<ResultsIt
         holder.itemView.tvDescTv.text = tv.overview
 
         val baseUrlImage = "https://image.tmdb.org/t/p/w300"
-        val urlImage = baseUrlImage + tv.backdropPath
+        val urlImage = baseUrlImage + tv.posterPath
 
         Glide.with(holder.itemView).load(urlImage).into(holder.itemView.ivTv)
 

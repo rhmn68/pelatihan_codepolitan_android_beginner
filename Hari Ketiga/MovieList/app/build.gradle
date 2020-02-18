@@ -8,7 +8,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.rahmanaulia.tvlist"
+        applicationId "com.rahmanaulia.movielist"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
@@ -44,7 +44,4 @@ dependencies {
 
     //Glide untuk memasukan data url image ke imageView
     implementation 'com.github.bumptech.glide:glide:4.10.0'
-
-    // Add SwipeRefresh
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 }

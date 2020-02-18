@@ -2,7 +2,9 @@ package com.rahmanaulia.tvlist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
@@ -22,17 +24,39 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        getDataApi()
+        initSwipeRefresh()
+
+        Handler().postDelayed({
+            getDataApi()
+        }, 1200)
+    }
+
+    private fun initSwipeRefresh() {
+        swipeTv.setOnRefreshListener {
+            getDataApi()
+            swipeTv.isRefreshing = false
+        }
+    }
+
+    private fun showLoading(){
+        swipeTv.isRefreshing = true
+        rvTv.visibility = View.GONE
+    }
+
+    private fun hideLoading(){
+        swipeTv.isRefreshing = false
+        rvTv.visibility = View.VISIBLE
     }
 
     private fun getDataApi(){
         val queue = Volley.newRequestQueue(this)
         val url = "https://api.themoviedb.org/3/discover/tv?api_key=$apiKey"
 
+        showLoading()
         val stringRequest = StringRequest(Request.Method.GET, url,
             Response.Listener<String>{response ->  
                 val tvResponse = Gson().fromJson(response, TvResponse::class.java)
-                Log.d("coba", "data: $response")
+                hideLoading()
                 if (tvResponse != null){
                     initTvAdapter(tvResponse)
                 }
