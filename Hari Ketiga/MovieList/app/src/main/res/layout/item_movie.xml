@@ -40,9 +40,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:ellipsize="end"
                 android:maxLines="2"
-                android:text="Lorem Ipsum sit" />
+                android:ellipsize="end"
+                android:text="Lorem Ipsum sit, Lorem Ipsum sit, Lorem Ipsum sit, Lorem Ipsum sit, Lorem Ipsum sit Lorem Ipsum sit,Lorem Ipsum sit,Lorem Ipsum sit ,Lorem Ipsum sit Lorem Ipsum sitLorem Ipsum sit ,Lorem Ipsum sit Lorem Ipsum sit ,Lorem Ipsum sit " />
 
             <LinearLayout
                 android:layout_width="match_parent"

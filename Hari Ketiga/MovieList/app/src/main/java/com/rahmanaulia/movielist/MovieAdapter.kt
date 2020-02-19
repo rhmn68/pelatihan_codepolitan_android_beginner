@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_movie.view.*
 
-class MovieAdapter(private val context: Context, private val movies: List<Movie>)
+class MovieAdapter(private val context: Context,
+                   private val movies: List<Movie>)
     :RecyclerView.Adapter<MovieAdapter.ViewHolder>(){
     class ViewHolder(view: View): RecyclerView.ViewHolder(view)
 
@@ -30,7 +31,7 @@ class MovieAdapter(private val context: Context, private val movies: List<Movie>
         val baseUrlImage = "https://image.tmdb.org/t/p/w780"
         val urlImage = baseUrlImage + movie.backdropPath
 
-        Glide.with(holder.itemView).load(urlImage).into(holder.itemView.ivMovie)
+        Glide.with(context).load(urlImage).into(holder.itemView.ivMovie)
 
         val rating = movie.voteAverage?.div(2)
         if (rating != null){
