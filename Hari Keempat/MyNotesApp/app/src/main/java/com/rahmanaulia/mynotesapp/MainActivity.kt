@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         val db = DatabaseHelper(this)
         notes = db.getAllNotes()
         adapter = NoteAdapter(this, notes)
+        adapter.notifyDataSetChanged()
         rvNote.layoutManager = LinearLayoutManager(this)
         rvNote.adapter = adapter
     }
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                     val db = DatabaseHelper(this)
                     val result = db.insertNotes(note)
                     if (result > 0){
+                        note.id = result.toInt()
                         notes.add(note)
                         adapter.notifyDataSetChanged()
                         Toast.makeText(this, "Data has been added", Toast.LENGTH_SHORT).show()
