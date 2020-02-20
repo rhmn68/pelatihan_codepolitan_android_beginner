@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +15,6 @@ import kotlinx.android.synthetic.main.item_note.view.*
 import kotlinx.android.synthetic.main.note_dialog.view.*
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class NoteAdapter(private val context: Context,
                   private val notes: ArrayList<Note>)
@@ -48,11 +46,10 @@ class NoteAdapter(private val context: Context,
             AlertDialog.Builder(context)
                 .setView(viewDialog)
                 .setTitle("Edit Data")
-                .setCancelable(false)
+                .setCancelable(true)
                 .setPositiveButton("Update") { dialog, _ ->
                     val title = viewDialog.etTitleNote.text.toString().trim()
                     val desc = viewDialog.etDescNote.text.toString().trim()
-                    dialog.cancel()
                     when {
                         title.isEmpty() -> {
                             Toast.makeText(context, "Please field your title", Toast.LENGTH_SHORT).show()
@@ -64,9 +61,7 @@ class NoteAdapter(private val context: Context,
                             note.title = title
                             note.desc = desc
                             note.date = getCurrentDate()
-
                             val result = db.updateNote(note)
-                            Log.d("coba", "result(Update Database): $result")
                             if (result > 0){
                                 notes[position] = note
                                 notifyDataSetChanged()
@@ -81,7 +76,6 @@ class NoteAdapter(private val context: Context,
                 }
                 .setNegativeButton("remove"){ dialog, _ ->
                     val result = db.deleteNote(note.id.toString())
-                    Log.d("coba", "result(Remove Database): $result")
                     if (result > 0){
                         notes.removeAt(position)
                         notifyDataSetChanged()

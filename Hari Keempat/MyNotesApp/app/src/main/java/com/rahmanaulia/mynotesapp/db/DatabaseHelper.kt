@@ -77,7 +77,7 @@ class DatabaseHelper(context: Context)
         values.put(COLUMN_DESC, note.desc)
         values.put(COLUMN_DATE, note.date)
 
-        val feedBack = db.update(TABLE_NOTES, values, "$COLUMN_ID = ?", arrayOf(note.id.toString()))
+        val feedBack = db.update(TABLE_NOTES, values, "$COLUMN_ID = ${note.id}", null)
         db.close()
         return feedBack
     }

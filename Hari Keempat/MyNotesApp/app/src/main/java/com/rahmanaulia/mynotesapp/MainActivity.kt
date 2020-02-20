@@ -1,7 +1,6 @@
 package com.rahmanaulia.mynotesapp
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -39,7 +38,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDialog(){
+        // View untuk menambahkan layout note_dialog
         val view = LayoutInflater.from(this).inflate(R.layout.note_dialog, null)
+
+        // Untuk membuat dialog
         AlertDialog.Builder(this)
             .setTitle("New Data")
             .setView(view)
@@ -60,9 +62,7 @@ class MainActivity : AppCompatActivity() {
 
                     val db = DatabaseHelper(this)
                     val result = db.insertNotes(note)
-                    Log.d("coba", "result(Input Database): $result")
                     if (result > 0){
-                        note.id = result.toInt()
                         notes.add(note)
                         adapter.notifyDataSetChanged()
                         Toast.makeText(this, "Data has been added", Toast.LENGTH_SHORT).show()
@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
+    // Untuk mendapatkan waktu saat ini
     private fun getCurrentDate(): String{
         val currentTime = Calendar.getInstance().time
         val dateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
