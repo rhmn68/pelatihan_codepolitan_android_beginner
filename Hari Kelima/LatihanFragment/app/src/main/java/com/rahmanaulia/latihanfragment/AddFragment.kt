@@ -40,6 +40,8 @@ class AddFragment : Fragment() {
             val number2 = etNumber2Add.text.toString().toDouble()
 
             val result = number1 + number2
+
+            //Untuk mengirimkan data ke Activity
             val intent = Intent(context, ResultActivity::class.java)
             intent.putExtra(ResultActivity.EXTRA_TITLE, title)
             intent.putExtra(ResultActivity.EXTRA_RESULT, result)
@@ -48,6 +50,7 @@ class AddFragment : Fragment() {
     }
 
     private fun getData() {
+        //Untuk mendapatkan data di Fragment
         if (arguments != null){
             title = arguments?.getString(EXTRA_TITLE)
 

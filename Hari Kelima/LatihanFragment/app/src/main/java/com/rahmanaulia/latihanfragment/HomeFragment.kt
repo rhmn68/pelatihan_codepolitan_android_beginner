@@ -26,12 +26,14 @@ class HomeFragment : Fragment() {
 
         btnAddHome.setOnClickListener {
             val addFragment = AddFragment()
+            //Untuk mengirim data antar fragment
             val bundle = Bundle()
             bundle.putString(AddFragment.EXTRA_TITLE, "Add")
             addFragment.arguments = bundle
+
+            //Untuk menggunakan function MainActivity di Fragment
             (activity as MainActivity).replaceFragment(addFragment)
         }
     }
-
 
 }

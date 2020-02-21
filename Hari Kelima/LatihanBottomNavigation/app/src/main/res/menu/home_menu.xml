@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_chats"
+        android:title="Chats"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_chat_black_24dp"/>
+
+    <item
+        android:id="@+id/action_status"
+        android:title="Status"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_person_black_24dp"/>
+
+    <item
+        android:id="@+id/action_calls"
+        android:title="Calls"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_call_black_24dp"/>
+
+</menu>
